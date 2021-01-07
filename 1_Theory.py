@@ -114,5 +114,78 @@ hello = say_hello(age="22", name="hyeyeong")
 print(hello)
 
 
+# conditionals
+
+def plus(a,b):
+    if type(b) is str:
+        return None
+    else:
+        return a+b
+
+print(plus(12,"10"))
+
+
+def plus(a,b):
+    if type(b) is int or type(b) is float:
+        return a+b
+    else:
+        return None
+
+print(plus(12,1.2))
+
+
+# if else and or
+
+def age_check(age):
+    print(f"you are {age}")
+    if age < 18:
+        print("you can't drink")
+    elif age == 18:
+        print("you are new to this!")
+    else:
+        print("enjoy your drink")
+
+age_check(18)
+
+
+# for in
+
+days = ("Mon", "Tue", "Wed", "Thu", "Fri")
+
+for day in days:
+  print(day)
+
+for x in [1,2,3,4,5]:
+  print(x)
+
+for day in days:
+  if day is "Wed":
+    break
+  else:
+    print(day)
+
+for letter in "hyeyeong":
+    print(letter)
+
+
+# modules
+
+# 쓸 것만 import 
+#import math
+
+from math import ceil, fsum, fabs  # 특정함수만 가져올 때 from
+
+# from math import fsum as sexy_sum fsum을 sexy_sum으로 정의하여 사용할 수 있음
+
+print(ceil(1.2))  # ceil은 올림
+print(fabs(-1.2))  # 절대값
+print(fsum([1,2,3,4,5]))
+
+from calculator import plus, minus  # from 파일명 
+
+print(plus(1,2))
+print(minus(1,2))
+
+# print는 어떻게 무한히 인자를 받아올 수 있나??
 
 
