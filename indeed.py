@@ -28,9 +28,9 @@ def extract_job(html):
     company_anchor = company.find("a")
     if company:
       if company_anchor != None:
-          company = str(company_anchor.string)
+          company = str(company_anchor.string).strip("\n")
       else:
-          company = str(company.string)
+          company = str(company.string).strip("\n")
     else:
       company = None
       company = company.strip()
@@ -47,7 +47,7 @@ def extract_job(html):
 def extract_jobs(last_page):
     jobs = []
     for page in range(last_page):
-        print(f"Scrapping page {page}")
+        print(f"Scrapping Indeed: Page {page}")
         result = requests.get(f"{URL}&start={page*LIMIT}")
         soup = BeautifulSoup(result.text, "html.parser")
         results = soup.find_all("div", {"class": "jobsearch-SerpJobCard"})
