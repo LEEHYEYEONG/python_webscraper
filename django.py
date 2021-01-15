@@ -43,3 +43,71 @@ class Car():
 
 porche = Car()
 porche.start()
+
+
+# Methods part two
+
+class Car():
+  wheels = 4
+  doors = 4
+  windows = 4
+  seats = 4
+
+  # kwargs 는 dictionary 자료구조
+  def __init__(self, **kwargs):
+    self.wheels = 4
+    self.doors = 4
+    self.windows = 4
+    self.seats = 4
+    self.color = kwargs.get("color", "black")
+    self.price = kwargs.get("price", "$20")
+  
+  def __str__(self):
+    return f"Car with {self.wheels} wheels"
+
+# dir은 class 안에 있는 모든 것들을 리스트로 보여준다
+# __str__은 그 class 의 instance를 출력
+
+# print(dir(Car))
+
+porche = Car(color = "green", price = "$40")
+print(porche.color, porche.price) # __str__자동으로 호출
+
+mini = Car()
+print(mini.color, mini.price)
+
+
+# Extending Classes
+
+class Car():
+
+  def __init__(self, **kwargs):
+    self.wheels = 4
+    self.doors = 4
+    self.windows = 4
+    self.seats = 4
+    self.color = kwargs.get("color", "black")
+    self.price = kwargs.get("price", "$20")
+  
+  def __str__(self):
+    return f"Car with {self.wheels} wheels"
+
+class Convertible(Car):
+
+  def __init__(self, **kwargs):
+    super.__init__(**kwargs)
+    self.time = kwargs.get("time", 10)
+
+  def take_off(self):
+    return "taking off"
+
+  def __str__(self):
+    return f"Car with no roof"
+
+
+porche = Car(color = "green", price = "$40")
+print(porche.color)
+
+mini = Car()
+
+
